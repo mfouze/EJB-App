@@ -1,14 +1,14 @@
 package enterprise;
 
 import javax.ejb.Remote;
-
-import enterprise.Customer;
 /**
  * The API of the entity bean.
  */
 @Remote
 public interface AdministrationClient {
-	String addUsers(Client c);
-	String removeUser();
-	String updatdeuser();
+	//Ajouter un Client
+	String addClient(Client c);
+	String removeClient(Client c);
+	String updatdeClient(Client c);
+	
 }
