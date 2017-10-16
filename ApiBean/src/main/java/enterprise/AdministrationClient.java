@@ -7,8 +7,21 @@ import javax.ejb.Remote;
 @Remote
 public interface AdministrationClient {
 	//Ajouter un Client
-	String addClient(Client c);
-	String removeClient(Client c);
-	String updatdeClient(Client c);
+	public Client addClient(Client c);
+	//supprimer un Client
+	public void removeClient(Client c);
+	//mettre à jour un les droits d'un client
+	public Client updatdeClientRights(Client c);
+	//recuperer les droits d'un client
+	public int getClientRights(Client c);
+	
+	//ajouter un objet 
+	public Objet addObjet(Objet o);
+	//supprimer un objet
+	public void deleteObjet(Objet o);
+	
+	
+	 
+	
 	
 }
