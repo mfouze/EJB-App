@@ -22,6 +22,7 @@ echo "---------                2 - Deployement                      -----------"
 asadmin start-domain
 sleep 2
 
+
 asadmin start-database
 sleep 2
 asadmin undeploy entity-bean.jar
