@@ -20,6 +20,9 @@ public class Objet implements Serializable {
 	private String description;
 	@Column
 	private String categorie;
+	@ManyToOne
+	@JoinColumn(name="code_cli")
+	private Client client;
 	private static final long serialVersionUID = 1L;
 
 	public Objet() {

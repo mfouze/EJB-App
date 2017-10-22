@@ -3,6 +3,8 @@ package enterprise;
 import java.io.Serializable;
 import java.lang.Long;
 import java.lang.String;
+import java.util.ArrayList;
+
 import javax.persistence.*;
 
 /**
@@ -24,6 +26,11 @@ public class Client implements Serializable {
 	private Long code_postal;
 	@Column(unique=true)
 	private String mail;
+	@OneToMany(mappedBy="client",fetch=FetchType.LAZY)
+	private ArrayList<Objet> mesobjets=new ArrayList<Objet>();
+	
+	@OneToMany(mappedBy="client",fetch=FetchType.LAZY)
+	private ArrayList<Auction> mesauction=new ArrayList<Auction>();
 	
 	private static final long serialVersionUID = 1L;
 

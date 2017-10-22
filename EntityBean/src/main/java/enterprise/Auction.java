@@ -1,6 +1,8 @@
 package enterprise;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+
 import javax.persistence.*;
 
 /**
@@ -17,6 +19,17 @@ public class Auction implements Serializable {
 	private int id;
 	@Column
 	private int statut;
+	@ManyToOne
+	@JoinColumn(name="code_cli")
+	private Client client;
+	@ManyToOne
+	@JoinColumn(name="code_objet")
+	private Objet objet;
+	@Column
+	private float duree;
+	@Column
+	private float prix_depart;
+	
 	private static final long serialVersionUID = 1L;
 
 	public Auction() {

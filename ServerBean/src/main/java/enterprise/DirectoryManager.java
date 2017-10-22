@@ -27,7 +27,7 @@ public class DirectoryManager implements AdministrationClient {
 	public Client addClient(Client c) {
 		
 		try {
-			if(findClient(c.getMail())) {
+			if(findClient(c.getMail())!=null) {
 			System.out.println("Le client "+c.getNom() +" "+c.getPrenom() +" est déja inscrit");
 			
 			}else {
@@ -45,7 +45,7 @@ public class DirectoryManager implements AdministrationClient {
 	public void removeClient(Client c) {
 		
 		try {
-			if(findClient(c.getMail())) {
+			if(findClient(c.getMail())==null) {
 			System.out.println("Le client "+c.getNom() +" "+c.getPrenom() +" n'est inscrit");
 			
 			}else {
@@ -62,7 +62,7 @@ public class DirectoryManager implements AdministrationClient {
 
 	@Override
 	public Client updatdeClientRights(Client c) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -74,7 +74,8 @@ public class DirectoryManager implements AdministrationClient {
 
 	@Override
 	public Objet addObjet(Objet o) {
-		// TODO Auto-generated method stub
+		
+		
 		return null;
 	}
 
@@ -84,21 +85,17 @@ public class DirectoryManager implements AdministrationClient {
 		
 	}
 	
-	//fonction interne 
+	//fonctions interne 
+
+	//Trouvez un client par son email
 	
-	private boolean findClient(String mail) throws SQLException {
+	private Client findClient(String mail) throws SQLException {
 		Client c=null;
 		Query requete = em.createQuery( JPQL_SELECT_BY_MAIL );
         requete.setParameter( PARAM_MAIL, mail );
         
-        try {
-        	
-        	c= (Client)requete.getSingleResult();
-        }catch(Exception e) {
-            throw new SQLException( e );
-
-        }
-		return (c==null) ? false : true ;
+        
+		return (Client)requete.getSingleResult() ;
 		
 	}
 
